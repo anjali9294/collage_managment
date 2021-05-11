@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  roll_no: 1
+  name: MyString
+  email: MyString
+  contact: 1
+  date_of_birth: 2021-05-10
+  gender: MyString
+  state: MyString
+  city: MyString
+  father_name: MyString
+  father_occupation: MyString
+  mother_name: MyString
+  mother_occupation: MyString
+  course: one
+
+two:
+  roll_no: 1
+  name: MyString
+  email: MyString
+  contact: 1
+  date_of_birth: 2021-05-10
+  gender: MyString
+  state: MyString
+  city: MyString
+  father_name: MyString
+  father_occupation: MyString
+  mother_name: MyString
+  mother_occupation: MyString
+  course: two
