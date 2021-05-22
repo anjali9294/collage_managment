@@ -18,7 +18,7 @@
       <th>Mother name</th>
       <th>Mother occupation</th>
       <th>Course</th>
-      <th>Teacher_id</th>
+      <th>Teacher</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -39,7 +39,7 @@
         <td><%= student.mother_name %></td>
         <td><%= student.mother_occupation %></td>
         <td><%= student.course_id %></td>
-        <td><%= student.teacher_id %></td>
+        <td><%= student.teacher.teacher_name if student.teacher%></td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>

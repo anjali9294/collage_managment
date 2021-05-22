@@ -13,6 +13,7 @@ class TeachersController < ApplicationController
   # GET /teachers/new
   def new
     @teacher = Teacher.new
+
   end
 
   # GET /teachers/1/edit
@@ -22,7 +23,7 @@ class TeachersController < ApplicationController
   # POST /teachers or /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
-
+ 
     respond_to do |format|
       if @teacher.save
         format.html { redirect_to @teacher, notice: "Teacher was successfully created." }
@@ -60,6 +61,7 @@ class TeachersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_teacher
       @teacher = Teacher.find(params[:id])
+    
     end
 
     # Only allow a list of trusted parameters through.

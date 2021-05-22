@@ -1,0 +1,84 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+ body{
+   margin:0 !important;
+   padding:0 !important;
+ }
+
+.navbar {
+
+  background-color: rgb(5, 190, 247) !important;
+  
+}
+
+.nav-link{
+  color : white !important
+}
+
+.logo{
+  float:left;
+  font-size: 1.7em;
+  color:#fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#home-img{
+  background-image: asset-url('home.jpeg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 82%;
+  width: 100%;
+}
+#welcome-img{
+  background-image: asset-url('welcome.jpeg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+  width: 100%;
+}
+#login-img{
+  background-image: asset-url('login.jpeg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+  width: 100%;
+}
+#signup-img{
+  background-image: asset-url('signup.jpeg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+  width: 100%;
+}
+.home-content{
+height: 450px;
+width: 100%;
+padding: 150px 0 0 360px;
+}
+
+html,body{
+  height: 100%;
+}
+#page-content{
+  flex: 1 0 auto;
+}
+
+#sticky-footer{
+  flex-shrink: none;
+  margin-bottom: 0px;
+  
+}
+
+#page-content{
+  background-color:rgb(156, 186, 190);
+  height: 600px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+

@@ -66,8 +66,8 @@
 </p>
 
 <p>
-  <strong>Teacher_id:</strong>
-  <%= @student.teacher_id%>
+  <strong>Teacher Name:</strong>
+  <%= @student.teacher.teacher_name if @student.teacher %>
 </p>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |

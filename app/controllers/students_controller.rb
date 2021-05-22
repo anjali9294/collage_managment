@@ -4,6 +4,7 @@ class StudentsController < ApplicationController
   # GET /students or /students.json
   def index
     @students = Student.all
+    
   end
 
   # GET /students/1 or /students/1.json
@@ -21,8 +22,9 @@ class StudentsController < ApplicationController
 
   # POST /students or /students.json
   def create
+    
     @student = Student.new(student_params)
-
+    @student.teacher = Teacher.first
     respond_to do |format|
       if @student.save
         format.html { redirect_to @student, notice: "Student was successfully created." }
@@ -49,6 +51,7 @@ class StudentsController < ApplicationController
 
   # DELETE /students/1 or /students/1.json
   def destroy
+  
     @student.destroy
     respond_to do |format|
       format.html { redirect_to students_url, notice: "Student was successfully destroyed." }
