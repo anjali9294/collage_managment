@@ -1,69 +1,92 @@
-<%= form_with(model: teacher, local: true) do |form| %>
-  <% if teacher.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
 
-      <ul>
-        <% teacher.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+
+<div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col-10 ">
+    <%= render 'shared/errors' , obj:@teacher%>
+      <%= form_with(model: @teacher,class:"shadow p-3 mb-3 bg-info rounded" ,local: true) do |f| %>
+        <div class="form-group row">
+          <%= f.label :teacher_name, class:"col-2 col-form-label text-white " %>
+         
+          <div class="col-10">
+          <%= f.text_field :teacher_name, class: "form-control shadow rounded",placeholder:"enter your name" %>
+          </div>
+        </div>
+        <br/>
+        
+        <div class="form-group row">
+        <%= f.label :email,class:"col-2 col-form-label text-white"%>
+        <div class="col-10">
+        <%= f.email_field :email,class: "form-control shadow rounded",placeholder:"enter your email" %>
+        </div>
+        </div>
+        <br/>
+        <div class="form-group row">
+        <%= f.label :contact,class:"col-2 col-form-label text-white"%>
+        <div class="col-10">
+        <%= f.number_field :contact,class: "form-control shadow rounded",placeholder:"Contact number" %>
+        </div>
+        </div>
+        <br/>
+        <div class="form-group row">
+        <%= f.label :date_of_birth ,class:"col-2 col-form-label text-white"%>
+        <div class="col-10">
+        <%= f.date_field :date_of_birth,class: "form-control shadow rounded",placeholder:"date of birth" %>
+        </div>
+        </div>
+        <br/>
+        <div class="form-group row">
+        <%= f.label :state,class:"col-2 col-form-label text-white"%>
+        <div class="col-10">
+        <%= f.text_field :state,class: "form-control shadow rounded",placeholder:"enter your state" %>
+        </div>
+        </div>
+        <br/>
+        <div class="form-group row">
+        <%= f.label :city ,class:"col-2 col-form-label text-white"%>
+        <div class="col-10">
+        <%= f.text_field :city,class: "form-control shadow rounded",placeholder:"enter your city" %>
+        </div>
+        </div>
+        <br/>
+        <div class="form-group row">
+        <%= f.label :qualification ,class:"col-2 col-form-label text-white"%>
+        <div class="col-10">
+        <%= f.text_field :qualification,class: "form-control shadow rounded",placeholder:"enter your qualification" %>
+        </div>
+        </div>
+        <br/>
+        <div class="form-group row">
+        <%= f.label :experience ,class:"col-2 col-form-label text-white"%>
+        <div class="col-10">
+        <%= f.text_field :experience,class: "form-control shadow rounded",placeholder:"enter your expirience" %>
+        </div>
+        </div>
+        <br/>
+        <div class="form-group row">
+        <%= f.label :gender ,class:"col-2 col-form-label text-white"%>
+        <div class="col-10">
+        <%= f.text_field :gender,class: "form-control shadow rounded",placeholder:"gender" %>
+        </div>
+        </div>
+        <br/>
+        <div class="form-group row">
+        <%= f.label :student ,class:"col-2 col-form-label text-white"%>
+          <div class="col-10">
+          <%= f.collection_select(:student_ids,Student.all,:id,:name,
+          {prompt:"make your selection from the list below(can be empty)"},{multiple: true,size:3,class:"form-select shadow rounded"})%>
+          </div>
+        
+        </div>
+        <div class = "text-center mt-3">
+          <%= f.submit class:"btn btn-outline-primary" %>
+          <%= link_to 'Back to Teacher', teachers_path ,class: "btn btn-outline-secondary"%>
+        </div>
+
+      <% end %>
+      
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :teacher_id %>
-    <%= form.number_field :teacher_id %>
+      
   </div>
-
-  <div class="field">
-    <%= form.label :teacher_name %>
-    <%= form.text_field :teacher_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :qualification %>
-    <%= form.text_field :qualification %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contact %>
-    <%= form.number_field :contact %>
-  </div>
-
-  <div class="field">
-    <%= form.label :experience %>
-    <%= form.number_field :experience %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_of_birth %>
-    <%= form.date_select :date_of_birth %>
-  </div>
-
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender %>
-  </div>
-
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

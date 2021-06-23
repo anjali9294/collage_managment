@@ -1,57 +1,105 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Teacher:</strong>
-  <%= @teacher.teacher_id %>
-</p>
-
-<p>
-  <strong>Teacher name:</strong>
-  <%= @teacher.teacher_name %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @teacher.state %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @teacher.city %>
-</p>
-
-<p>
-  <strong>Qualification:</strong>
-  <%= @teacher.qualification %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @teacher.email %>
-</p>
-
-<p>
-  <strong>Contact:</strong>
-  <%= @teacher.contact %>
-</p>
-
-<p>
-  <strong>Experience:</strong>
-  <%= @teacher.experience %>
-</p>
-
-<p>
-  <strong>Date of birth:</strong>
-  <%= @teacher.date_of_birth %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @teacher.gender %>
-</p>
 
 
 
+<div class="container">
 
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+            <div class="card p-2 text-center">
+                <div class="row">
+                    <div class="col-md-7 border-right no-gutters">
+                    <br>
+                        <div class="py-3"><img src="https://source.unsplash.com/200x200/?user" width="100" class="rounded-circle">
+                        <h4 class="text-secondary"><%= link_to @teacher.teacher_name, teacher_path(@teacher)%></h4>
+                           
+                         
+                        
+                     
+                            <br>
+                            
+                            <div class="stats">
+                                <table class="table table-borderless ">
+                                    <tbody>
+                                      <tr>
+                                        <td>
+                                          <p class="d-flex flex-column">
+                                            <strong class="text-center head">Name:</strong>
+                                            <p class="text-center bottom" ><%= @teacher.teacher_name %></p>
+                                          </p>
+                                        </td>
+                                        <td>   
+                                          
+                                           <p class="d-flex flex-column">
+                                            <strong class="text-center head">DOB:</strong>
+                                            <p class="text-center bottom" ><%= @teacher.date_of_birth %></p>
+                                          </p>                                            
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            <p class="d-flex flex-column">
+                                            <strong class="text-center head">State:</strong>
+                                            <p class="text-center bottom" ><%= @teacher.state %></p>
+                                          </p>                                                </td>
+                                            <td>
+                                            <p class="d-flex flex-column">
+                                            <strong class="text-center head">City:</strong>
+                                            <p class="text-center bottom" ><%= @teacher.city %></p>
+                                          </p>                                                </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-5 text-left">
+                        <div class="py-3">
+                        <p>
+                                            <strong class="d-block head">Email:</strong>
+                                            <p class:"text-left bottom" ><%= @teacher.email %></p>
+                                          </p> 
+                                          <p class="mt-4">
+                                          <strong class="d-block head">Contact:</strong>
+                                          <p class:"text-left bottom" ><%= @teacher.contact %></p>                                        </p> 
+                                        <p class="mt-4">
+                                          <strong class="d-block head">Experience:</strong>
+                                          <p class:"text-left bottom" ><%= @teacher.experience %></p>                                        </p> 
+                                        <p class="mt-4">
+                                          <strong class="d-block head">Qualification:</strong>
+                                          <p class:"text-left bottom" ><%= @teacher.qualification%></p>                                        </p> 
+                                        <p class="mt-4">
+                                          <strong class="d-block head">Gender:</strong>
+                                          <p class:"text-left bottom" ><%= @teacher.gender%></p>                                        </p>       
+
+                            
+                        </div>
+                        <div class="mb-2">
+                        <%= link_to "View", teacher_path(@teacher), class: "btn btn-outline-success " %>
+                        <% if logged_in? && (current_user.admin?) %>  
+                        <%= link_to "Edit", edit_teacher_path(@teacher), class: "btn btn-outline-info" %>
+                        <%= link_to "Delete", teacher_path(@teacher),method: :delete,data:{confirm: "Are you sure?"},class: "btn btn-outline-danger"%>
+                        </div>
+                        <% end %>
+                        </div>
+  
+                    </div>
+                    <div class="card-footer text-muted ">
+                    <small>Created <%= time_ago_in_words(@teacher.created_at) %>ago,
+                    edited <%= time_ago_in_words(@teacher.updated_at) %>ego</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+</div>
+
+

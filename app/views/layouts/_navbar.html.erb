@@ -1,25 +1,61 @@
-<header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
-<%=  link_to "COLLAGE",root_path,class:"navbar-brand mr-0 mr-md-2 logo"%>  
 
 
-  <div class="navbar-nav-scroll">
-    <ul class="navbar-nav bd-navbar-nav flex-row">
-      <li class="nav-item mr-0 mr-md-2">
-    <%= link_to 'courses list', courses_path,class:"nav-link" %>
-    </li>
-    <li class="nav-item">
-    <%= link_to 'teachers list', teachers_path,class:"nav-link" %>
-    </li>
-    <li class="nav-item">
-    <%= link_to 'students list', students_path,class:"nav-link" %>
-    </li>
-    <li class="nav-item">
-    <%= link_to 'subjects list', subjects_path,class:"nav-link" %>
-    </li>
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+<div class="container-fluid">
+<%=  link_to "COLLEGE",root_path,class:"navbar-brand mr-0 mr-md-2 ",id:"logo"%>  
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarScroll">
+    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+    
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Students</a>
+        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+        <% if logged_in? %>  
+        <%= link_to "create new Student",new_student_path,class:"dropdown-item"%>
+        <% end %> 
+        <%= link_to "View student",students_path,class:"dropdown-item"%>
+          
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Teachers</a>
+        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+        <% if logged_in? && current_user.admin?%>  
+        <%= link_to "create new teacher",new_teacher_path,class:"dropdown-item"%>
+        <% end %> 
+        <%= link_to "View teachers",teachers_path,class:"dropdown-item"%>
 
+        </ul>
+      </li>
 
+      
+      <% if logged_in? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+        <%= "(admin)" if current_user.admin? %>Profile[<%= current_user.username %>]
+        </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <%= link_to "View your profile",user_path(current_user),class:"dropdown-item"%>
+            <%= link_to "edit your profile",edit_user_path(current_user),class:"dropdown-item"%>
+            <%= link_to "delete profile",user_path(current_user),class:"dropdown-item text-danger",method: :delete, data: {confirm: "Are you sure?"} %>
+            </ul>
+      </li>
+
+      <li class="nav-item">
+      <%= link_to 'log out',logout_path,class:"nav-link",method: :delete%>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to 'log in',login_path,class:"nav-link"%>
+      </li>
+      <li class="nav-item">
+      <%= link_to 'sign up',signup_path,class:"nav-link"%>
+    </li>
+      <% end %>
     </ul>
-  </div>
-
   
-</header>
+  </div>
+</div>
+</nav>

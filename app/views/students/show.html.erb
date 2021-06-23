@@ -1,74 +1,107 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Roll no:</strong>
-  <%= @student.roll_no %>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @student.name %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Email:</strong>
-  <%= @student.email %>
-</p>
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+            <div class="card p-2 text-center">
+                <div class="row">
+                    <div class="col-md-7 border-right no-gutters">
+                    <br>
+                        <div class="py-3"><img src="https://source.unsplash.com/200x200/?user" width="100" class="rounded-circle">
+                        <h4 class="text-secondary"><%= link_to @student.name, student_path(@student)%></h4>
+                           
+                        
+                        
+                    
+                            <br>
+                            
+                            <div class="stats">
+                                <table class="table table-borderless ">
+                                    <tbody>
+                                      <tr>
+                                        <td>
+                                          <p class="d-flex flex-column">
+                                            <strong class="text-center head">Name:</strong>
+                                            <p class="text-center bottom" ><%= @student.name %></p>
+                                          </p>
+                                        </td>
+                                        <td>   
+                                          
+                                           <p class="d-flex flex-column">
+                                            <strong class="text-center head">DOB:</strong>
+                                            <p class="text-center bottom" ><%= @student.date_of_birth %></p>
+                                          </p>                                            
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            <p class="d-flex flex-column">
+                                            <strong class="text-center head">State:</strong>
+                                            <p class="text-center bottom" ><%= @student.state %></p>
+                                          </p>                                                </td>
+                                            <td>
+                                            <p class="d-flex flex-column">
+                                            <strong class="text-center head">City:</strong>
+                                            <p class="text-center bottom" ><%= @student.city %></p>
+                                          </p>                                                </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-5 text-left">
+                        <div class="py-3">
+                        <p>
+                                            <strong class="d-block head">Email:</strong>
+                                            <p class:"text-left bottom" ><%= @student.email %></p>
+                                          </p> 
+                                          <p class="mt-4">
+                                          <strong class="d-block head">Father name:</strong>
+                                          <p class:"text-left bottom" ><%= @student.father_name %></p>                                        </p> 
+                                        <p class="mt-4">
+                                          <strong class="d-block head">Father occupation:</strong>
+                                          <p class:"text-left bottom" ><%= @student.father_occupation %></p>                                        </p> 
+                                        <p class="mt-4">
+                                          <strong class="d-block head">Mother name:</strong>
+                                          <p class:"text-left bottom" ><%= @student.mother_name %></p>                                        </p> 
+                                        <p class="mt-4">
+                                          <strong class="d-block head">Mother occupation:</strong>
+                                          <p class:"text-left bottom" ><%= @student.mother_occupation %></p>                                        </p>       
+                                          <p class="mt-4">
+                                          <strong class="d-block head">Course:</strong>
+                                          <p class:"text-left bottom" ><%= @student.course_id%></p>                                        </p>       
 
-<p>
-  <strong>Contact:</strong>
-  <%= @student.contact %>
-</p>
+                            
+                        </div>
+                        <div class="mb-2">
+                        <%= link_to "View", student_path(@student), class: "btn btn-outline-success " %>
+                        <% if logged_in? && current_user.admin?%>  
+                        <%= link_to "Edit", edit_student_path(@student), class: "btn btn-outline-info" %>
+                        <%= link_to "Delete", student_path(@student),method: :delete,data:{confirm: "Are you sure?"},class: "btn btn-outline-danger"%>
+                        </div>
+                        <% end %>
+                        </div>
+  
+                    </div>
+                    <div class="card-footer text-muted ">
+                    <small>Created <%= time_ago_in_words(@student.created_at) %>ago,
+                    edited <%= time_ago_in_words(@student.updated_at) %>ego</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<p>
-  <strong>Date of birth:</strong>
-  <%= @student.date_of_birth %>
-</p>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @student.gender %>
-</p>
+</div>
+</div>
+</div>
 
-<p>
-  <strong>State:</strong>
-  <%= @student.state %>
-</p>
+</div>
 
-<p>
-  <strong>City:</strong>
-  <%= @student.city %>
-</p>
 
-<p>
-  <strong>Father name:</strong>
-  <%= @student.father_name %>
-</p>
-
-<p>
-  <strong>Father occupation:</strong>
-  <%= @student.father_occupation %>
-</p>
-
-<p>
-  <strong>Mother name:</strong>
-  <%= @student.mother_name %>
-</p>
-
-<p>
-  <strong>Mother occupation:</strong>
-  <%= @student.mother_occupation %>
-</p>
-
-<p>
-  <strong>Course:</strong>
-  <%= @student.course_id %>
-</p>
-
-<p>
-  <strong>Teacher Name:</strong>
-  <%= @student.teacher.teacher_name if @student.teacher %>
-</p>
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>

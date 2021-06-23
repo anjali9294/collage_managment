@@ -1,0 +1,82 @@
+
+
+<div class="container">
+<% @teachers.each do |teacher| %>
+  <div class="container mt-1">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+            <div class="card p-2 text-center">
+                <div class="row">
+                    <div class="col-md-7 border-right no-gutters">
+                    <br>
+                        <div class="py-3"><img src="https://source.unsplash.com/200x200/?user" width="100" class="rounded-circle">
+                            <br>
+                            <h4 class="text-secondary"><%= link_to teacher.teacher_name, teacher_path(teacher)%></h4>
+                           
+                            
+                          
+                         
+                           
+                            <br>
+                            <div class="stats">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                    
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex flex-column"> <span class="text-left head">Teacher name</span> <span class="text-left bottom"><%= teacher.teacher_name %></span> </div>
+                                            </td>
+                                            <td>    
+                                                <div class="d-flex flex-column"> <span class="text-left head">DOB</span> <span class="text-left bottom"><%= teacher.date_of_birth %></span> </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex flex-column"> <span class="text-left head">State</span> <span class="text-left bottom"><%= teacher.state %></span> </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex flex-column"> <span class="text-left head">City</span> <span class="text-left bottom"><%= teacher.city %></span> </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-5 text-left">
+                        <div class="py-3">
+                            <div> <span class="d-block head">Email</span> <span class="bottom"><%= teacher.email %></span> </div>
+                            <div class="mt-4"> <span class="d-block head">Qualification</span> <span class="bottom"><%= teacher.qualification %></span> </div>
+                            <div class="mt-4"> <span class="d-block head">Contact</span> <span class="bottom"><%= teacher.contact%></span> </div>
+                            <div class="mt-4"> <span class="d-block head">Experience</span> <span class="bottom"><%= teacher.experience %></span> </div>
+                            <div class="mt-4"> <span class="d-block head">Gender</span> <span class="bottom"><%= teacher.gender %></span> </div>
+                        </div>
+                        <div class="mb-2">
+                        <%= link_to "View", teacher_path(teacher), class: "btn btn-outline-success " %>
+                        <% if logged_in? && (current_user.admin?) %>  
+                        <%= link_to "Edit", edit_teacher_path(teacher), class: "btn btn-outline-info" %>
+                        <%= link_to "Delete", teacher_path(teacher),method: :delete,data:{confirm: "Are you sure?"},class: "btn btn-outline-danger"%>
+                       </div>
+                        <% end %>
+                        </div>
+  
+                    </div>
+                    <div class="card-footer text-muted ">
+                    <small>Created <%= time_ago_in_words(teacher.created_at) %>ago,
+                    edited <%= time_ago_in_words(teacher.updated_at) %>ego</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+</div>
+<% end %>
+</div>
+
+
